@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/menu_home"
+        android:enabled="true"
+        android:icon="@drawable/baseline_house_24"
+        android:title="홈" />
+    <item
+        android:id="@+id/menu_go_home"
+        android:enabled="true"
+        android:icon="@drawable/baseline_addchart_24"
+        android:title="외박" />
+    <item
+        android:id="@+id/menu_movie"
+        android:enabled="true"
+        android:icon="@drawable/movie"
+        android:title="영화 투표" />
+<!--    <item-->
+<!--        android:id="@+id/menuQR"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/baseline_qr_code_24"-->
+<!--        android:title="QR코드 스캔" />-->
+</menu>

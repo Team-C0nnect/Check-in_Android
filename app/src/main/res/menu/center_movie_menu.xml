@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_attendance_check"
+        android:enabled="true"
+        android:title="출석 체크 신청" />
+    <item
+        android:id="@+id/menu_go_home_apply"
+        android:enabled="true"
+        android:title="최근 외박 신청" />
+    <item
+        android:id="@+id/menu_movie_vote"
+        android:enabled="true"
+        android:title="영와 투표" />
+    <item
+        android:id="@+id/menu_movie_apply"
+        android:enabled="true"
+        android:title="영화 신청" />
+    <!--    <item-->
+    <!--        android:id="@+id/menuQR"-->
+    <!--        android:enabled="true"-->
+    <!--        android:icon="@drawable/baseline_qr_code_24"-->
+    <!--        android:title="QR코드 스캔" />-->
+</menu>

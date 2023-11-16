@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hs.dgsw.android.check.MainActivity"
+    android:orientation="vertical"
+    android:background="#E6E6E6"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="check in"
+        android:textSize="36dp"
+        android:layout_marginTop="250dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="#000"
+        />
+    <View
+        android:layout_width="300dp"
+        android:layout_height="4px"
+        android:background="#01055D"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기숙사 관리 앱"
+        android:layout_marginTop="10dp"
+        android:textColor="#01055D"
+        android:textSize="24dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hs.dgsw.android.check.MovieActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/goMovieVoteText"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:text="영화 투표 하러 가기"
+        android:textColor="#000"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/goMovieVoteBtn"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_corner"
+        android:text="보고 싶은 영화 투표 하기!!" />
+
+    <TextView
+        android:id="@+id/goMovieApplyBtn"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:text="영화 신청 하러 가기"
+        android:textColor="#000"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/goMovieApplyText"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp"
+        android:text="내가 원하는 영화 신청 하기!!"
+        android:background="@drawable/rounded_corner" />
+
+
+
+</LinearLayout>

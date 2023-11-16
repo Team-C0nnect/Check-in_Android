@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">check_inApp</string>
+    <string name="google_login_client_id">846014004935-hv1jmjtho7cifmhe6gp3cdr8r3aucnj3.apps.googleusercontent.com</string>
+    <string name="web_client_id">846014004935-s8as4ndv858n1r1790tk1t3pd92v66rv.apps.googleusercontent.com</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="fcm_message">FCM Message</string>
+</resources>
