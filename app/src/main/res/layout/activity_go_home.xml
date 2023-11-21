@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:gravity="center">
 
+
     <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -35,7 +36,7 @@
         android:textSize="25dp"
         android:textStyle="bold"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/passDay"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -44,6 +45,7 @@
         android:layout_marginTop="10dp"
         android:textSize="25dp"
         android:textStyle="bold"
+        android:text=""
         android:background="@drawable/rounded_corner" />
 
     <TextView
@@ -56,7 +58,7 @@
         android:textSize="25dp"
         android:textStyle="bold"/>
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/returnDay"
         android:layout_width="300dp"
         android:layout_height="40dp"
@@ -64,6 +66,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:textSize="25dp"
+        android:text=""
         android:textStyle="bold"
         android:background="@drawable/rounded_corner" />
 
