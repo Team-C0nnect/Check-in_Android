@@ -67,6 +67,15 @@ class GoHomeActivity : Fragment(), MainActivity.onBackPressedListener {
         // 외박 날짜, 복귀 날짜, 샤유, 서버로 보내기
         binding.sleepoverBtn.setOnClickListener{
 
+            // 외박 날짜, 복귀 날짜, 샤유, 서버로 보내고
+
+
+
+            // 메인으로 돌아가기
+            val HomeFragment = HomeActivity.newInstance()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentFrame, HomeFragment)
+                .commit()
         }
         return binding.root
     }
