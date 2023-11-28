@@ -62,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
                     runBlocking {
                         fcmToken = CheckInDataBase.getInstance(applicationContext)?.fcmTokenDao()?.getMembers()?.fcmToken.toString()
                     }
+
                     RetrofitBuilder.getLoginService().login(
                         LoginRequest(
                             idToken = idToken,

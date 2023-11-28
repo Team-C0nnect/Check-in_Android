@@ -12,6 +12,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hs.dgsw.android.check.databinding.ActivityMainBinding
+import com.hs.dgsw.android.check.local.CheckInDataBase
+import com.hs.dgsw.android.check.remote.RetrofitBuilder
+import com.hs.dgsw.android.check.remote.request.LoginRequest
+import com.hs.dgsw.android.check.remote.response.StudentResponse
+import com.hs.dgsw.android.check.remote.service.StudentService
+import okhttp3.OkHttpClient
+import okio.Timeout
+import retrofit2.Callback
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
+import java.util.concurrent.TimeUnit
+import kotlin.math.log
 
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
@@ -22,8 +35,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     private val TAG = "로그"
 
-//    private lateinit var GoHomeActivity : GoHomeActivity
-//    private lateinit var MovieActivity : MovieActivity
 
 
 
@@ -32,16 +43,27 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         setContentView(binding.root)
         Log.d(TAG, "onCreate: rr")
 
+        RetrofitBuilder.getStudentService().getStudent(
 
-////         화면 전환
-//        val intent = Intent(this, LoginActivity::class.java)
-//        startActivity(intent)
+        ).let { result ->
+            Log.d(TAG, "onCreate: 성공했나??")
+
+            
+        }
+
+
+
 
         binding.bottomNav.setOnNavigationItemSelectedListener(this)
 
         val homeFragment = HomeActivity.newInstance()
         supportFragmentManager.beginTransaction().add(R.id.fragmentFrame, homeFragment).commit()
+
+
     }
+
+
+
     // 바텀 네비게이션 기능 구현
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
@@ -66,6 +88,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
         return true
     }
+
+
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
     ) { isGranted: Boolean ->
@@ -76,9 +100,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
     }
 
+    // 뒤로가기 구현
     interface onBackPressedListener{
         fun onBackPressed()
     }
+
     // 뒤로 가기 기능 구현
     override fun onBackPressed() {
         Log.d(TAG, "onBackPressed: 가즈아")
@@ -96,8 +122,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
     }
 
-
-
+    //요청알림권한
     private fun askNotificationPermission() {
         // This is only necessary for API level >= 33 (TIRAMISU)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

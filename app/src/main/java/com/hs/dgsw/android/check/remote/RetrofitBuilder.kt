@@ -4,11 +4,13 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.hs.dgsw.android.check.remote.interceptor.TokenInterceptor
 import com.hs.dgsw.android.check.remote.service.LoginService
+import com.hs.dgsw.android.check.remote.service.StudentService
 import com.hs.dgsw.android.check.remote.service.TokenService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import javax.net.ssl.SSLContext
@@ -23,6 +25,7 @@ class RetrofitBuilder {
         private var tokenRetrofit: Retrofit? = null
         private var loginService: LoginService? = null
         private var tokenService: TokenService? = null
+        private var studentService: StudentService? = null
 
         @Synchronized
         fun getGson(): Gson? {
@@ -80,7 +83,6 @@ class RetrofitBuilder {
                     authType: String?
                 ) {
                 }
-
                 override fun checkServerTrusted(
                     chain: Array<out X509Certificate>?,
                     authType: String?
@@ -107,8 +109,10 @@ class RetrofitBuilder {
             if (retrofit == null) {
                 retrofit = Retrofit.Builder()
                     .baseUrl("http://43.202.136.92:8080")
+
                     .client(getOhHttpClient())
                     .addConverterFactory(GsonConverterFactory.create(getGson()!!))
+
                     .build()
             }
             return retrofit!!
@@ -133,6 +137,13 @@ class RetrofitBuilder {
             }
             return loginService!!
         }
+        @Synchronized
+        fun getStudentService(): StudentService {
+            if (studentService == null) {
+                studentService = getRetrofit().create(StudentService::class.java)
+            }
+            return studentService!!
+        }
 
         @Synchronized
         fun getTokenService(): TokenService {
@@ -141,43 +152,5 @@ class RetrofitBuilder {
             }
             return tokenService!!
         }
-
-
-
-
-
-
     }
 }
-
-
-//    private fun getOkHttpClient(): OkHttpClient {
-//        val interceptor = HttpLoggingInterceptor()
-//        interceptor.level = HttpLoggingInterceptor.Level.BODY
-//        val okhttpBuilder = OkHttpClient().newBuilder()
-//            .addInterceptor(interceptor)
-//        val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
-//            override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
-//            override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
-//            override fun getAcceptedIssuers(): Array<X509Certificate> { return arrayOf() }
-//        })
-//
-//        val sslContext = SSLContext.getInstance("SSL")
-//        sslContext.init(null, trustAllCerts, SecureRandom())
-//
-//        val sslSocketFactory = sslContext.socketFactory
-//
-//        okhttpBuilder.sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
-//        okhttpBuilder.hostnameVerifier { hostname, session -> true }
-//        return okhttpBuilder.build()
-//    }
-//
-//    private fun getRetrofit(): Retrofit =
-//        Retrofit.Builder()
-//            .baseUrl("http://43.202.136.92:8080")
-//            .client(getOkHttpClient())
-//            .addConverterFactory(GsonConverterFactory.create(getGson()))
-//            .build()
-//    fun getLoginService(): LoginService =
-//        getRetrofit().create(LoginService::class.java)
-//}
