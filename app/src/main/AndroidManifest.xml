@@ -44,6 +44,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".JoinMemberShipActivity"
+            android:exported="false"/>
+        <activity
             android:name=".ScreenActivity"
             android:exported="true">
             <intent-filter>

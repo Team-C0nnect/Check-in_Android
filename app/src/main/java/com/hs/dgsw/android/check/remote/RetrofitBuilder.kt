@@ -109,10 +109,8 @@ class RetrofitBuilder {
             if (retrofit == null) {
                 retrofit = Retrofit.Builder()
                     .baseUrl("http://43.202.136.92:8080")
-
                     .client(getOhHttpClient())
                     .addConverterFactory(GsonConverterFactory.create(getGson()!!))
-
                     .build()
             }
             return retrofit!!
@@ -140,7 +138,7 @@ class RetrofitBuilder {
         @Synchronized
         fun getStudentService(): StudentService {
             if (studentService == null) {
-                studentService = getRetrofit().create(StudentService::class.java)
+                studentService = getTokenRetrofit().create(StudentService::class.java)
             }
             return studentService!!
         }

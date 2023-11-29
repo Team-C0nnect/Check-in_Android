@@ -18,7 +18,6 @@ class MovieVoteActivity : AppCompatActivity() {
 
             // 서버로 보내고
 
-
             // 시작 화면으로 돌아가기
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

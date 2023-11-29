@@ -1,6 +1,7 @@
 package com.hs.dgsw.android.check
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hs.dgsw.android.check.databinding.ActivityMainBinding
 import com.hs.dgsw.android.check.local.CheckInDataBase
@@ -17,6 +19,8 @@ import com.hs.dgsw.android.check.remote.RetrofitBuilder
 import com.hs.dgsw.android.check.remote.request.LoginRequest
 import com.hs.dgsw.android.check.remote.response.StudentResponse
 import com.hs.dgsw.android.check.remote.service.StudentService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okio.Timeout
 import retrofit2.Callback
@@ -43,13 +47,17 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         setContentView(binding.root)
         Log.d(TAG, "onCreate: rr")
 
-        RetrofitBuilder.getStudentService().getStudent(
-
-        ).let { result ->
-            Log.d(TAG, "onCreate: 성공했나??")
-
-            
+        lifecycleScope.launch(Dispatchers.IO){
+            kotlin.runCatching {
+                RetrofitBuilder.getStudentService().getStudent()
+            }.onSuccess {
+                Log.d(TAG, "성공: $it")
+            }.onFailure {
+                moveJoin()
+            }
         }
+
+
 
 
 
@@ -140,5 +148,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
         }
+    }
+
+    private fun moveJoin(){
+        intent = Intent(this, JoinMemberShipActivity::class.java)
+        startActivity(intent)
     }
 }
