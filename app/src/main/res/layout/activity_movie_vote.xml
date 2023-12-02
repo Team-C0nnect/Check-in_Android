@@ -30,55 +30,23 @@
                 android:textStyle="bold"
                 android:gravity="center" />
 
-            <TextView
-                android:id="@+id/movieText"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="30dp"
-                android:text="영화 1"
-                android:textColor="#000"
-                android:textSize="32dp"
-                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/etitText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter text"/>
 
-            <TextView
-                android:id="@+id/movieText2"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:text="영화 2"
-                android:textColor="#000"
-                android:textSize="32dp"
-                android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add"/>
 
-            <TextView
-                android:id="@+id/movieText3"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:text="영화 3"
-                android:textColor="#000"
-                android:textSize="32dp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/movieText4"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:text="영화 4"
-                android:textColor="#000"
-                android:textSize="32dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/movieText5"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:text="영화 5"
-                android:textColor="#000"
-                android:textSize="32dp"
-                android:textStyle="bold" />
+            <ListView
+                android:id="@+id/movieListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/movieVoteBtn"
@@ -90,7 +58,7 @@
                 android:textColor="#fff"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="80dp"
                 android:layout_gravity="center" />
 
         </LinearLayout>

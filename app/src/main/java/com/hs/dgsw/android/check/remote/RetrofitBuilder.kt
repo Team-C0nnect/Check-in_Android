@@ -4,13 +4,13 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.hs.dgsw.android.check.remote.interceptor.TokenInterceptor
 import com.hs.dgsw.android.check.remote.service.LoginService
+import com.hs.dgsw.android.check.remote.service.MovieService
 import com.hs.dgsw.android.check.remote.service.StudentService
 import com.hs.dgsw.android.check.remote.service.TokenService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import javax.net.ssl.SSLContext
@@ -26,6 +26,7 @@ class RetrofitBuilder {
         private var loginService: LoginService? = null
         private var tokenService: TokenService? = null
         private var studentService: StudentService? = null
+        private var movieApplyService: MovieService? = null
 
         @Synchronized
         fun getGson(): Gson? {
@@ -141,6 +142,14 @@ class RetrofitBuilder {
                 studentService = getTokenRetrofit().create(StudentService::class.java)
             }
             return studentService!!
+        }
+
+        @Synchronized
+        fun getMovieApplyService(): MovieService{
+            if (movieApplyService == null){
+                movieApplyService = getTokenRetrofit().create(MovieService::class.java)
+            }
+            return movieApplyService!!
         }
 
         @Synchronized

@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -38,8 +39,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     private val TAG = "로그"
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

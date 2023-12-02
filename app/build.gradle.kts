@@ -67,8 +67,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.5.0")
     kapt("androidx.room:room-compiler:2.5.0")
 
-    //달력
-//    implementation("com.github.prolificinteractive:material-calendarview:2.0.1")
-
+    // QRCode scan
+    implementation("com.journeyapps:zxing-android-embedded:4.2.0")
 
 }

@@ -5,21 +5,18 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.icu.text.Collator.ReorderCodes
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.hs.dgsw.android.check.databinding.ActivityHomeBinding
-import java.security.Permission
 
 
 class HomeActivity : Fragment(), MainActivity.onBackPressedListener{
@@ -68,7 +65,6 @@ class HomeActivity : Fragment(), MainActivity.onBackPressedListener{
             } else{
                 ActivityCompat.requestPermissions(requireActivity(), CAMERA_PERMISSION, FLAG_PERM_CAMERA)
             }
-
         }
 
         // 외박 신청
