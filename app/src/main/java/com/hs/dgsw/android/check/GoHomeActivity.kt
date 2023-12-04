@@ -9,6 +9,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.hs.dgsw.android.check.databinding.ActivityGoHomeBinding
 import android.app.DatePickerDialog
+import androidx.lifecycle.lifecycleScope
+import com.hs.dgsw.android.check.remote.RetrofitBuilder
+import com.hs.dgsw.android.check.remote.request.GoHomeRequest
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.Calendar
 
 class GoHomeActivity : Fragment(), MainActivity.onBackPressedListener {
@@ -64,11 +69,30 @@ class GoHomeActivity : Fragment(), MainActivity.onBackPressedListener {
             binding.returnDay.setText(returnDayData)
         }
 
+        var reason = binding.reason
+        var reasonSave = reason.text.toString()
+
         // 외박 날짜, 복귀 날짜, 샤유, 서버로 보내기
         binding.sleepoverBtn.setOnClickListener{
 
             // 외박 날짜, 복귀 날짜, 샤유, 서버로 보내고
-
+            lifecycleScope.launch(Dispatchers.IO){
+                kotlin.runCatching {
+                    RetrofitBuilder.getGoHomeService().postGoHome(
+                        body = GoHomeRequest(
+                            userId = 0,
+                            reason = reasonSave,
+                            approval = "",
+                            startDateTime = passDayData,
+                            endDateTime = returnDayData
+                        )
+                    )
+                }.onSuccess {
+                    Log.d(TAG, "성공: $it")
+                }.onFailure {
+                    Log.d(TAG, "실패: $it")
+                }
+            }
 
 
             // 메인으로 돌아가기

@@ -3,6 +3,7 @@ package com.hs.dgsw.android.check.remote
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.hs.dgsw.android.check.remote.interceptor.TokenInterceptor
+import com.hs.dgsw.android.check.remote.service.GoHomeService
 import com.hs.dgsw.android.check.remote.service.LoginService
 import com.hs.dgsw.android.check.remote.service.MovieService
 import com.hs.dgsw.android.check.remote.service.StudentService
@@ -11,6 +12,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import javax.net.ssl.SSLContext
@@ -27,6 +29,7 @@ class RetrofitBuilder {
         private var tokenService: TokenService? = null
         private var studentService: StudentService? = null
         private var movieApplyService: MovieService? = null
+        private var goHomeService: GoHomeService? = null
 
         @Synchronized
         fun getGson(): Gson? {
@@ -150,6 +153,14 @@ class RetrofitBuilder {
                 movieApplyService = getTokenRetrofit().create(MovieService::class.java)
             }
             return movieApplyService!!
+        }
+
+        @Synchronized
+        fun getGoHomeService(): GoHomeService{
+            if (goHomeService == null){
+                goHomeService = getTokenRetrofit().create(GoHomeService::class.java)
+            }
+            return goHomeService!!
         }
 
         @Synchronized

@@ -30,23 +30,6 @@
                 android:textStyle="bold"
                 android:gravity="center" />
 
-            <EditText
-                android:id="@+id/etitText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter text"/>
-
-            <Button
-                android:id="@+id/btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Add"/>
-
-
-            <ListView
-                android:id="@+id/movieListView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/movieVoteBtn"

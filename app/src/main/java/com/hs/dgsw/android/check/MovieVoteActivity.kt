@@ -37,27 +37,25 @@ class MovieVoteActivity : AppCompatActivity() {
             }.onSuccess {
                 Log.d(TAG, "성공: $it")
 
-                val movieList = ArrayList<String>()
-                val listView = binding.movieListView
-
-                val adapter = ArrayAdapter(this@MovieVoteActivity, R.layout.simple_list_item_1, movieList)
-                listView.adapter = adapter
-
-                val editText: EditText = binding.etitText
-                val btn: Button = binding.btn
-
-                btn.setOnClickListener {
-                    movieList.add(editText.text.toString())
-                    adapter.notifyDataSetChanged()
-                }
-
-                listView.setOnItemLongClickListener { parent, view, position, id ->
-                    movieList.removeAt(position)
-                    adapter.notifyDataSetChanged()
-                    false
-                }
-
-
+//                val movieList = ArrayList<String>()
+//                val listView = binding.movieListView
+//
+//                val adapter = ArrayAdapter(this@MovieVoteActivity, R.layout.simple_list_item_1, movieList)
+//                listView.adapter = adapter
+//
+//                val editText: EditText = binding.etitText
+//                val btn: Button = binding.btn
+//
+//                btn.setOnClickListener {
+//                    movieList.add(editText.text.toString())
+//                    adapter.notifyDataSetChanged()
+//                }
+//
+//                listView.setOnItemLongClickListener { parent, view, position, id ->
+//                    movieList.removeAt(position)
+//                    adapter.notifyDataSetChanged()
+//                    false
+//                }
             }.onFailure {
 
             }
