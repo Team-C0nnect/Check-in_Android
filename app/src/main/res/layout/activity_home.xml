@@ -90,45 +90,6 @@
                 android:background="@drawable/rounded_corner"
                 android:text="신청된 외박이 없어요!!" />
 
-            <TextView
-                android:id="@+id/outSideText1"
-                android:layout_width="300dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
-                android:text="영화 투표"
-                android:textColor="#000"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/movieVote"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/rounded_corner"
-                android:text="영화를 투표하지 않았어요!!" />
-
-            <TextView
-                android:id="@+id/outSideText2"
-                android:layout_width="300dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
-                android:text="영화 신청"
-                android:textColor="#000"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/movieApply"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="30dp"
-                android:text="신청한 영화가 없어요!!"
-                android:background="@drawable/rounded_corner" />
-
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

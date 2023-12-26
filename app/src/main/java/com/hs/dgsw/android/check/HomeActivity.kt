@@ -76,19 +76,6 @@ class HomeActivity : Fragment(), MainActivity.onBackPressedListener{
                 .commit()
         }
 
-        // 영화 투표
-        binding.movieVote.setOnClickListener{
-            Log.d(TAG, "onCreate: 됬어!")
-            val intent = Intent(activity, MovieVoteActivity::class.java)
-            startActivity(intent)
-        }
-
-        // 영화 신청
-        binding.movieApply.setOnClickListener(){
-            Log.d(TAG, "onCreate: 됬어!")
-            val intent = Intent(activity, MovieApplyActivity::class.java)
-            startActivity(intent)
-        }
 
         // 값이 만족되면 텍스트 봐꾸기
 //        var a = 0

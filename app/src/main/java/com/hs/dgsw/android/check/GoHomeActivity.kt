@@ -20,8 +20,9 @@ class GoHomeActivity : Fragment(), MainActivity.onBackPressedListener {
 
     var returnDayData = ""
     var passDayData = ""
+
     companion object{
-        private const val TAG = "로그"
+        const val TAG = "로그"
 
         fun newInstance(): GoHomeActivity {
             return GoHomeActivity()

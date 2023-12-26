@@ -75,11 +75,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
-            R.id.menu_movie -> {
-                Log.d(TAG, "onNavigationItemSelected: 영화 버튼 클릭")
-                val movieFragment = MovieActivity.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.fragmentFrame, movieFragment).commit()
-            }
             R.id.menu_go_home -> {
                 Log.d(TAG, "onNavigationItemSelected: 외박버튼 클릭")
                 val goHomeFragment = GoHomeActivity.newInstance()
@@ -90,6 +85,11 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 Log.d(TAG, "onNavigationItemSelected: 홈 버튼 클릭")
                 val homeFragment = HomeActivity.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.fragmentFrame, homeFragment).commit()
+            }
+            R.id.menu_user_profile -> {
+                Log.d(TAG, "onNavigationItemSelected: 프로필 버튼 클릭")
+                val userProfileFragment = UserProfileActivity.newInstance()
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentFrame, userProfileFragment).commit()
             }
         }
 
